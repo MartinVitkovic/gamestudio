@@ -8,6 +8,11 @@ import javax.transaction.Transactional;
 
 import com.ness.gamestudio.entity.Rating;
 
+/*
+ metoda addRating - pridat rating pre kazdeho hraca len raz
+ metoda getRatingForGrame - meno a hraca
+ metoda getAvgRating - priemerny rating
+ */
 @Transactional
 public class RatingServiceJPA implements RatingService {
 	@PersistenceContext

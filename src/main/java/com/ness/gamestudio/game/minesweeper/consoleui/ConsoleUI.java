@@ -157,8 +157,7 @@ public class ConsoleUI implements UserInterface {
 		if (input.equals("X")) {
 			System.exit(0);
 		} else if (input.equals("B")) {
-			System.exit(0);
-			gameStudio.getInstance();
+			//gameStudio.getInstance();
 		} else if (matcher.matches()) {
 			String command = matcher.group(1);
 			String row = matcher.group(2);
