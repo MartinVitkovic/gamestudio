@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<div th:fragment="header">
+    <span class="clock"></span>
+    Welcome to <a href="/">Gamestudio</a>.
+    <span th:if="${!@playerController.logged}">
+        <a href="/player">Login or register</a>
+    </span>
+    <span th:if="${@playerController.logged}">
+        You are logged as <span id="name" th:text="${@playerController.loggedPlayer?.name}"/>.
+        <a href="/logout">Logout</a>
+    </span>
+    </div>
+
+</body>
+</html>

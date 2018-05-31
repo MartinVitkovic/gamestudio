@@ -3,6 +3,7 @@ package com.ness.gamestudio.game.minesweeper.core;
 import java.util.Random;
 
 import com.ness.gamestudio.game.minesweeper.core.Tile.State;
+import com.ness.gamestudio.game.minesweeper.entity.GamePlay;
 
 /**
  * Field represents playing field and game logic.
@@ -32,6 +33,10 @@ public class Field {
 	 * Game state.
 	 */
 	private GameState state = GameState.PLAYING;
+	
+	private GamePlay gamePlay;
+	
+	private long startMillis = System.currentTimeMillis();
 
 	/**
 	 * Constructor.
@@ -52,6 +57,15 @@ public class Field {
 		// printArray(tiles);
 		// generate the field content
 		generate();
+	}
+	
+	public Field(GamePlay gamePlay) {
+        this.rowCount = gamePlay.getRowCount();
+        this.columnCount = gamePlay.getColumnCount();
+        this.mineCount = gamePlay.getMineCoordinates().size();
+        tiles = new Tile[rowCount][columnCount];
+        //initMines(gamePlay.getMineCoordinates());
+        fillWithClues();
 	}
 
 	/**
@@ -239,6 +253,19 @@ public class Field {
 
 	public Tile getTile(int row, int column) {
 		return tiles[row][column];
+	}
+	
+	public int getPlayingSeconds() {
+        return (int) (System.currentTimeMillis() - startMillis) / 1000;
+    }
+	
+	public int getScore() {
+        int score = rowCount * columnCount * 3 - getPlayingSeconds();
+        return score < 0 ? 0 : score;
+    }
+	
+	public GamePlay getGamePlay() {
+		return gamePlay;
 	}
 
 }

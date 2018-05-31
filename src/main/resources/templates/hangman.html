@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<link rel="icon" href="/images/hangman/favicon.png"/>
+<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light+Two" rel="stylesheet"/> 
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous"/>
+<link rel="stylesheet" media="screen" href="/css/hangman.css"/>
+<title>Hangman</title>
+</head>
+<body>
+<div th:replace = "fragments::header"/>
+	<div class="card border-secondary" > 
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col card-header">		
+					<h1 class="display-4">Hangman</h1>
+				</div>
+			</div>
+			<div class="row space">
+				<div class="col-4">
+				</div>
+				<div class="col-4">
+					<img id="hang" src="/images/hangman/phase0.png" alt="Hangman"/>
+				</div>
+				<div class="col-4">
+				</div>
+			</div>
+			<div class="row space">
+				<div class="col-4">
+				</div>
+				<div class="col-4">
+					<span id="span-char"></span>
+				</div>
+				<div class="col-4">
+				</div>
+			</div>
+			<div class="row space">
+				<div class="col-1">
+				</div>
+				<div class="col-10 border border-secondary rounded">
+					<button type="submit" class="btn btn-light button-char">A</button>
+					<button type="submit" class="btn btn-light button-char">B</button>
+					<button type="submit" class="btn btn-light button-char">C</button>
+					<button type="submit" class="btn btn-light button-char">D</button>
+					<button type="submit" class="btn btn-light button-char">E</button> 
+					<button type="submit" class="btn btn-light button-char">F</button>
+					<button type="submit" class="btn btn-light button-char">G</button>
+					<button type="submit" class="btn btn-light button-char">H</button>
+					<button type="submit" class="btn btn-light button-char">I</button>
+					<button type="submit" class="btn btn-light button-char">J</button>
+					<button type="submit" class="btn btn-light button-char">K</button>
+					<button type="submit" class="btn btn-light button-char">L</button>
+					<button type="submit" class="btn btn-light button-char">M</button>
+					<button type="submit" class="btn btn-light button-char">N</button>
+					<button type="submit" class="btn btn-light button-char">O</button>
+					<button type="submit" class="btn btn-light button-char">P</button>
+					<button type="submit" class="btn btn-light button-char">Q</button>
+					<button type="submit" class="btn btn-light button-char">R</button>
+					<button type="submit" class="btn btn-light button-char">S</button>
+					<button type="submit" class="btn btn-light button-char">T</button>
+					<button type="submit" class="btn btn-light button-char">U</button>
+					<button type="submit" class="btn btn-light button-char">V</button>
+					<button type="submit" class="btn btn-light button-char">W</button>
+					<button type="submit" class="btn btn-light button-char">X</button>
+					<button type="submit" class="btn btn-light button-char">Y</button>
+					<button type="submit" class="btn btn-light button-char">Z</button>					
+				</div>
+				<div class="col-1">
+				</div>
+			</div>
+			<div class="row space">
+				<div class="col-4">
+				</div>
+				<div class="col-4">
+					<button type="submit" class="btn btn-outline-dark btn-block"
+						id="button-restart">Restart</button>
+				</div>
+				<div class="col-4">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<!-- 	bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+		
+<!-- 		js -->
+	<script src="/js/hangman.js"></script>
+	<script src="/js/fragments.js"></script>
+</body>
+</html>

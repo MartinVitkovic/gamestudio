@@ -13,7 +13,10 @@ import java.util.regex.PatternSyntaxException;
 
 import javax.print.attribute.standard.DateTimeAtCompleted;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.ness.gamestudio.Main;
+import com.ness.gamestudio.entity.Score;
 import com.ness.gamestudio.game.minesweeper.Minesweeper;
 import com.ness.gamestudio.game.minesweeper.UserInterface;
 import com.ness.gamestudio.game.minesweeper.consoleui.WrongFormatException;
@@ -21,6 +24,8 @@ import com.ness.gamestudio.game.minesweeper.core.Clue;
 import com.ness.gamestudio.game.minesweeper.core.Field;
 import com.ness.gamestudio.game.minesweeper.core.GameState;
 import com.ness.gamestudio.game.minesweeper.core.Tile;
+import com.ness.gamestudio.game.minesweeper.service.GamePlayService;
+import com.ness.gamestudio.service.ScoreService;
 
 /**
  * Console user interface.
@@ -31,7 +36,17 @@ public class ConsoleUI implements UserInterface {
 
 	/** Input reader. */
 	private BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-	private Main gameStudio;
+	//private Main gameStudio;
+	
+	private static final String MINES = "mines";
+
+	private static final String GAME_NAME = MINES;
+	
+	@Autowired
+    private GamePlayService gamePlayService;
+
+    @Autowired
+    private ScoreService scoreService;
 
 	/**
 	 * Reads line of text from the reader.
@@ -53,7 +68,7 @@ public class ConsoleUI implements UserInterface {
 	 * minesweeper.consoleui.UserInterface#newGameStarted(minesweeper.core.Field)
 	 */
 	@Override
-	public void newGameStarted(Field field) {
+	public void newGame(Field field) {
 		this.field = field;
 
 		// username
@@ -66,6 +81,8 @@ public class ConsoleUI implements UserInterface {
 
 		System.out.println("\n");
 		System.out.println("HRA MINESWEEPER");
+		
+		//printScores();
 		do {
 			update();
 			processInput();
@@ -82,6 +99,8 @@ public class ConsoleUI implements UserInterface {
 			}
 
 		} while (true);
+		
+		//gamePlayService.storeGamePlay(field.getGamePlay());
 	}
 
 	/*
@@ -128,6 +147,7 @@ public class ConsoleUI implements UserInterface {
 		}
 		System.out.println("Pocet neoznacenych min: " + field.getRemainingMineCount());
 		System.out.println("Aktualny hraci cas: " + minesweeper.getPlayingSeconds() + "s");
+		//System.out.printf("Score: %d s.\n", field.getScore());
 		System.out.println("X – ukoncenie hry\n" + "MA1 – oznacenie dlazdice v riadku A a stlpci 1\n"
 				+ "OB4 – odkrytie dlazdice v riadku B a stlpci 4");
 		System.out.println("Zadaj prikaz: ");
@@ -184,6 +204,12 @@ public class ConsoleUI implements UserInterface {
 			} else {
 				throw new WrongFormatException("Zadal si zly vstup");
 			}
+		}
+	}
+	
+	private void printScores() {
+		for(Score score : scoreService.getBestScoresForGame(MINES)) {
+			System.out.printf("%s %5d\n", score.getPlayer(), score.getPoints());
 		}
 	}
 

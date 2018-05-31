@@ -8,4 +8,6 @@ public interface CommentService {
 	void addComment(Comment comment);
 
 	List<Comment> getCommentsForGame(String game);
+	
+	void deleteComment(String game, int id);
 }

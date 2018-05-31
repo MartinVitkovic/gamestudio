@@ -7,5 +7,7 @@ import com.ness.gamestudio.entity.Rating;
 public interface RatingService {
 void addRating(Rating rating);
 
-List<Rating> getRatingForGame(String game);
+List<Rating> getRatingForGame(String name, String game);
+
+double getAvgRating(String game);
 }

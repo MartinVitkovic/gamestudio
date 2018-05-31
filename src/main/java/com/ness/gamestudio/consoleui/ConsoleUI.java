@@ -7,13 +7,13 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import com.ness.gamestudio.game.minesweeper.Minesweeper;
-import com.ness.gamestudio.game.stones.MainStone;
+import com.ness.gamestudio.game.stones.MainStones;
 
 public class ConsoleUI {
 
 	private BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 	private Minesweeper minesweeper;
-	private MainStone stones;
+	private MainStones stones;
 
 	/**
 	 * Menu options.

@@ -24,7 +24,7 @@ public class Minesweeper {
 		userInterface = new ConsoleUI();
 		Settings loadSetting = setting.load();
 		Field field = new Field(loadSetting.getRowCount(), loadSetting.getColumnCount(), loadSetting.getMineCount());
-		userInterface.newGameStarted(field);
+		userInterface.newGame(field);
 	}
 
 	public int getPlayingSeconds() {

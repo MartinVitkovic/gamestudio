@@ -20,13 +20,24 @@ public class RatingServiceJPA implements RatingService {
 
 	@Override
 	public void addRating(Rating rating) {
-		entityManager.persist(rating);
+		List<Rating> playerRating = getRatingForGame(rating.getPlayer(), rating.getGame());
+		if (playerRating.isEmpty()) {
+			entityManager.persist(rating);
+		} else {
+			playerRating.get(0).setStars(rating.getStars());
+		}
 	}
 
 	@Override
-	public List<Rating> getRatingForGame(String game) {
-		return entityManager.createQuery("SELECT r FROM Rating r WHERE r.game=? ORDER BY r.stars DESC")
-				.setParameter(1, game).getResultList();
+	public List<Rating> getRatingForGame(String name, String game) {
+		return entityManager.createQuery("SELECT r FROM Rating r WHERE r.player=? AND r.game=?").setParameter(1, name)
+				.setParameter(2, game).getResultList();
+	}
+
+	@Override
+	public double getAvgRating(String game) {
+		return (double) entityManager.createQuery("SELECT avg(r.stars) FROM Rating r WHERE r.game=?")
+				.setParameter(1, game).getSingleResult();
 	}
 
 }

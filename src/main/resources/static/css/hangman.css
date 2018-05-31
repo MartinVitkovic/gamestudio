@@ -1,0 +1,41 @@
+#hang {
+	display: block; /*for the img inside your div */
+	margin: 0 auto;
+}
+
+#hang-go {
+	display: block; /*for the img inside your div */
+	margin: 0 auto;
+	visibility: hidden;
+}
+
+#button-restart{
+	margin-bottom: 2em;
+}
+
+body{
+	font-family: 'Shadows Into Light Two', cursive;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+}
+
+.space{
+	margin-top: 2em;
+}
+
+#span-guessedLetters{
+	height: 4em;
+}
+
+a:link, a:visited {
+  color: #008000;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #008000;
+  font-weight : bold;
+  text-decoration : underline;
+}

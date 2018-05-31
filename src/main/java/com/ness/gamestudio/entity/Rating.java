@@ -16,7 +16,7 @@ public class Rating {
 	
 	private String game;
 	
-	private int stars;
+	private double stars;
 	
 	private Date playedOn;
 	
@@ -55,11 +55,11 @@ public class Rating {
 		this.game = game;
 	}
 
-	public int getStars() {
+	public double getStars() {
 		return stars;
 	}
 
-	public void setStars(int stars) {
+	public void setStars(double stars) {
 		this.stars = stars;
 	}
 

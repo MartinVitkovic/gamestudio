@@ -24,4 +24,9 @@ public class CommentServiceJPA implements CommentService {
 				.getResultList();
 	}
 
+	public void deleteComment(String game, int id) {
+		entityManager.createQuery("DELETE FROM Comment c WHERE c.game=? AND c.ident=?").setParameter(1, game)
+				.setParameter(2, id).executeUpdate();
+	}
+
 }

@@ -1,0 +1,136 @@
+body{
+	font-family: 'Shadows Into Light Two', cursive;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+}
+
+a:link, a:visited {
+  color: #008000;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #008000;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+.clock {
+  font-size: 1em;
+  color: silver;
+}
+
+.span{
+	width: 400px;
+	text-align: center;
+}
+
+.win{
+	
+}
+
+#game {
+/*   width: 402px; */
+  height: 33.1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+   border: 1px solid black; 
+   border-radius: 1em; 
+   background-color: gray;
+}
+
+.tile{
+	box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 1.5em;
+  margin: 0.45em;
+  width: 19.7%;
+  height: 19.7%;
+  position: relative;
+  overflow: hidden;
+}
+
+.tile > div {
+  width: 100%;
+  height: 200%;
+  position: absolute;
+  top: 0;
+  transition: 400ms;
+}
+
+.tile > div > div {
+  height: 50%;
+}
+
+.tile > div > div:first-child {
+  background-color: silver;
+}
+
+.flip > div {
+  top: -100%;
+}
+
+.square-0 {
+  background-color: #c0c0c0;
+  background-image: url("/images/concentration/folder0.png");
+}
+
+.square-1 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder1.png");
+}
+
+.square-2 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder2.png");
+}
+
+.square-3 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder3.png");
+}
+
+.square-4 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder4.png");
+}
+
+.square-5 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder5.png");
+}
+
+.square-6 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder6.png");
+}
+
+.square-7 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder7.png");
+}
+
+.square-8 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder8.png");
+}
+
+.square-9 {
+  background-color: silver;
+  background-image: url("/images/concentration/folder9.png");
+}
+
+.space{
+	margin-top: 2em;
+}
+
+.space1{
+	margin-top: 1em;
+}
+
+.bottom{
+	margin-bottom: 2em;
+}
